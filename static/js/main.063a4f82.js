@@ -37530,7 +37530,7 @@
     n.d(t, "a", function() {
         return i
     });
-    var r = new window.WebSocket("ws://" + window.location.host + "/api/v1")
+    var r = new window.WebSocket("ws://dex.lunochkin.com/api/v1")
       , i = r.send.bind(r)
 }
 , function(e, t, n) {
@@ -43925,7 +43925,7 @@
                     path: "/",
                     render: function() {
                         return s.a.createElement(f.c, {
-                            to: "/WETH/ZRX"
+                            to: "/WETH/AMIS"
                         })
                     }
                 }), s.a.createElement(f.d, {
@@ -95242,7 +95242,7 @@
             t
         }
     }()
-      , v = ["ZRX", "GNT"]
+      , v = ["ZRX", "AMIS", "GNT"]
       , g = c()({
         root: {}
     })
