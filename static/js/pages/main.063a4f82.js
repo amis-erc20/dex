@@ -10449,7 +10449,7 @@
                         switch (t.prev = t.next) {
                         case 0:
                             return t.next = 2,
-                            c()("/api/v1/tokens/" + e);
+                            c()("http://dex.lunochkin.com/api/v1/tokens/" + e);
                         case 2:
                             r = t.sent,
                             i = r.data,
@@ -10474,7 +10474,7 @@
                         switch (t.prev = t.next) {
                         case 0:
                             return t.next = 2,
-                            c()("/api/v1/tokens/" + e);
+                            c()("http://dex.lunochkin.com/api/v1/tokens/" + e);
                         case 2:
                             r = t.sent,
                             i = r.data,
@@ -10499,7 +10499,7 @@
                         switch (e.prev = e.next) {
                         case 0:
                             return e.next = 2,
-                            c.a.get("/api/v1/tokens");
+                            c.a.get("http://dex.lunochkin.com/api/v1/tokens");
                         case 2:
                             n = e.sent,
                             r = n.data,
@@ -49512,7 +49512,7 @@
                             }),
                             t = o.state.order,
                             e.next = 4,
-                            p.a.post("/api/v1/orders/" + t.data.orderHash + "/validate");
+                            p.a.post("http://dex.lunochkin.com/api/v1/orders/" + t.data.orderHash + "/validate");
                         case 4:
                             n = e.sent,
                             r = n.data.error,
