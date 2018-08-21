@@ -37530,7 +37530,7 @@
     n.d(t, "a", function() {
         return i
     });
-    var r = new window.WebSocket("http://dex.lunochkin.com/api/v1")
+    var r = new window.WebSocket("ws://dex.lunochkin.com/api/v1")
       , i = r.send.bind(r)
 }
 , function(e, t, n) {
