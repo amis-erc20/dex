@@ -3,16 +3,16 @@ import jss from 'react-jss'
 import TextField from '@material-ui/core/TextField'
 import SmartButton from 'material-ui-smart-button'
 import OrderModeRadio from './OrderModeRadio'
-import {makeMarketOrder} from 'modules/index'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+import { makeMarketOrder } from 'modules/index'
+import { connect } from 'react-redux'
+import withWeb3 from 'hocs/withWeb3'
 
 const connector = connect(
   state => ({
     marketplaceToken: state.marketplaceToken,
     currentToken: state.currentToken
   }),
-  dispatch => bindActionCreators({makeMarketOrder}, dispatch)
+  { makeMarketOrder }
 )
 
 const decorate = jss({
@@ -45,10 +45,11 @@ class MarketOrderForm extends React.Component {
   }
 
   handlePlaceOrder = async () => {
-    const {mode, amount} = this.state
+    const { mode, amount } = this.state
+    const { web3, makeMarketOrder } = this.props
 
     try {
-      await this.props.makeMarketOrder({
+      await makeMarketOrder(web3, {
         type: mode,
         amount
       })
@@ -59,8 +60,8 @@ class MarketOrderForm extends React.Component {
   }
 
   render () {
-    const {classes, marketplaceToken, currentToken} = this.props
-    const {amount, mode} = this.state
+    const { classes, marketplaceToken, currentToken } = this.props
+    const { amount, mode } = this.state
 
     const symbol = mode === 'buy' ? marketplaceToken.symbol : currentToken.symbol
 
@@ -89,4 +90,4 @@ class MarketOrderForm extends React.Component {
   }
 }
 
-export default connector(decorate(MarketOrderForm))
+export default withWeb3(connector(decorate(MarketOrderForm)))
